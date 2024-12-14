@@ -1,0 +1,599 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <!-- Meta tags for social media banners, these should be filled in appropriatly as they are your "business card" -->
+  <!-- Replace the content tag with appropriate information -->
+  <meta name="description" content="DESCRIPTION META TAG">
+  <meta property="og:title" content="SOCIAL MEDIA TITLE TAG"/>
+  <meta property="og:description" content="SOCIAL MEDIA DESCRIPTION TAG TAG"/>
+  <meta property="og:url" content="URL OF THE WEBSITE"/>
+  <!-- Path to banner image, should be in the path listed below. Optimal dimenssions are 1200X630-->
+  <meta property="og:image" content="static/image/your_banner_image.png" />
+  <meta property="og:image:width" content="1200"/>
+  <meta property="og:image:height" content="630"/>
+
+
+  <meta name="twitter:title" content="TWITTER BANNER TITLE META TAG">
+  <meta name="twitter:description" content="TWITTER BANNER DESCRIPTION META TAG">
+  <!-- Path to banner image, should be in the path listed below. Optimal dimenssions are 1200X600-->
+  <meta name="twitter:image" content="static/images/your_twitter_banner_image.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <!-- Keywords for your paper to be indexed by-->
+  <meta name="keywords" content="KEYWORDS SHOULD BE PLACED HERE">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+  <title>Subtractive Training</title>
+  <link rel="icon" type="image/x-icon" href="static/images/favicon.ico">
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
+  rel="stylesheet">
+
+  <link rel="stylesheet" href="static/css/bulma.min.css">
+  <link rel="stylesheet" href="static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="static/css/fontawesome.all.min.css">
+  <link rel="stylesheet"
+  href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="static/css/index.css">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://documentcloud.adobe.com/view-sdk/main.js"></script>
+  <script defer src="static/js/fontawesome.all.min.js"></script>
+  <script src="static/js/bulma-carousel.min.js"></script>
+  <script src="static/js/bulma-slider.min.js"></script>
+  <script src="static/js/index.js"></script>
+</head>
+<body>
+
+
+  <section class="hero">
+    <div class="hero-body">
+      <div class="container is-max-desktop">
+        <div class="columns is-centered">
+          <div class="column has-text-centered">
+            <h1 class="title is-1 publication-title">Subtractive Training for Music Stem Insertion using Latent Diffusion Models</h1>
+            <div class="is-size-5 publication-authors">
+              <!-- Paper authors -->
+              <span class="author-block">
+                <a href="FIRST AUTHOR PERSONAL LINK" target="_blank">First Author</a><sup>*</sup>,</span>
+                <span class="author-block">
+                  <a href="SECOND AUTHOR PERSONAL LINK" target="_blank">Second Author</a><sup>*</sup>,</span>
+                  <span class="author-block">
+                    <a href="THIRD AUTHOR PERSONAL LINK" target="_blank">Third Author</a>
+                  </span>
+                  </div>
+
+                  <div class="is-size-5 publication-authors">
+                    <span class="author-block">Institution Name<br>ICASSP 2025</span>
+                    <span class="eql-cntrb"><small><br><sup>*</sup>Indicates Equal Contribution</small></span>
+                  </div>
+
+                  <div class="column has-text-centered">
+                    <div class="publication-links">
+                         <!-- Arxiv PDF link -->
+                      <!-- <span class="link-block">
+                        <a href="https://arxiv.org/pdf/<ARXIV PAPER ID>.pdf" target="_blank"
+                        class="external-link button is-normal is-rounded is-dark">
+                        <span class="icon">
+                          <i class="fas fa-file-pdf"></i>
+                        </span>
+                        <span>Paper</span>
+                      </a>
+                    </span> -->
+
+                    <!-- Supplementary PDF link -->
+                    <!-- <span class="link-block">
+                      <a href="static/pdfs/supplementary_material.pdf" target="_blank"
+                      class="external-link button is-normal is-rounded is-dark">
+                      <span class="icon">
+                        <i class="fas fa-file-pdf"></i>
+                      </span>
+                      <span>Supplementary</span>
+                    </a>
+                  </span> -->
+
+                  <!-- Github link -->
+                  <!-- <span class="link-block">
+                    <a href="https://github.com/YOUR REPO HERE" target="_blank"
+                    class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon">
+                      <i class="fab fa-github"></i>
+                    </span>
+                    <span>Code</span>
+                  </a>
+                </span> -->
+
+                <!-- ArXiv abstract Link -->
+                <!-- <span class="link-block">
+                  <a href="https://arxiv.org/abs/<ARXIV PAPER ID>" target="_blank"
+                  class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                    <i class="ai ai-arxiv"></i>
+                  </span>
+                  <span>arXiv</span>
+                </a>
+              </span> -->
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Paper abstract -->
+<section class="section hero is-light">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Abstract</h2>
+        <div class="content has-text-justified">
+          <p>
+            We present Subtractive Training, a simple and novel method for synthesizing individual musical instrument stems given other instruments as context. This method pairs a dataset of complete music mixes with 1) a variant of the dataset lacking a specific stem, and 2) LLM-generated instructions describing how the missing stem should be reintroduced. We then fine-tune a pretrained text-to-audio diffusion model to generate the missing instrument stem, guided by both the existing stems and the text instruction. Our results demonstrate Subtractive Training's efficacy in creating authentic drum stems that seamlessly blend with the existing tracks. We also show that we can use the text instruction to control the generation of the inserted stem in terms of rhythm, dynamics, and genre, allowing us to modify the style of a single instrument in a full song while keeping the remaining instruments the same. Lastly, we extend this technique to MIDI formats, successfully generating compatible bass, drum, and guitar parts for incomplete arrangements.
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- End paper abstract -->
+
+
+  
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Subtractive Training Generation Examples</h2>
+        <div class="content has-text-justified">
+          <p>
+            In these examples, we take a full-mix song, remove the drums, and add in our own drum using our drum-insertion model. The drum insertion is guided by a text prompt.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="container" id="abstractdiv">
+  <table class="table table-responsive">
+      <thead>
+      <tr class="text-center">
+          <td></td>
+          <td><b>Original Song</b></td>
+          <td><b>Remove Drums</b></td>
+          <td><b>Add Drums Using Our Diffusion Model</b></td>
+      </tr>
+      </thead>
+      <tbody>
+      <tr>
+          <td class="desc">1</td> 
+          <!-- 5 -->
+          <td class="text-center"><audio controls class="sample_audio"><source src="static/drum_examples/rock_drums_target.wav" type="audio/mpeg"></audio></td>
+          <td class="text-center"><audio controls class="sample_audio"><source src="static/drum_examples/rock_drums_background.wav" type="audio/mpeg"></audio></td>
+          <!-- <td class="desc">Add rock drums</td> -->
+          <td class="text-center">
+            <audio controls class="sample_audio"><source src="static/drum_examples/rock_drums_output.wav" type="audio/mpeg"></audio>
+            <p class="is-size-7">Add rock drums</p>
+          </td>
+      </tr>
+      <tr>
+          <td class="desc">2</td>
+          <td class="text-center"><audio controls class="sample_audio"><source src="static/drum_examples/indie_drums_target.wav" type="audio/mpeg"></audio></td>
+          <td class="text-center"><audio controls class="sample_audio"><source src="static/drum_examples/indie_drums_background.wav" type="audio/mpeg"></audio></td>
+          <!-- <td class="desc">Add indie drums with punchy beats</td> -->
+          <td class="text-center">
+            <audio controls class="sample_audio"><source src="static/drum_examples/indie_drums_output.wav" type="audio/mpeg"></audio>
+            <p class="is-size-7">Add indie drums with punchy beats</p>
+          </td>
+          </tr>
+      <tr>
+            <!-- <td class="desc">4</td> -->
+            <td class="desc">3</td>
+            <td class="text-center"><audio controls class="sample_audio"><source src="static/drum_examples/reggae_drums_target.wav" type="audio/mpeg"></audio></td>
+            <td class="text-center"><audio controls class="sample_audio"><source src="static/drum_examples/reggae_drums_background.wav" type="audio/mpeg"></audio></td>
+            <!-- <td class="desc">Add reggae beats</td> -->
+            <td class="text-center">
+              <audio controls class="sample_audio"><source src="static/drum_examples/reggae_drums_output.wav" type="audio/mpeg"></audio>
+              <p class="is-size-7">Add reggae beats</p>
+            </td>
+        </tr>
+      <tr>
+          <!-- <td class="desc">1</td> -->
+          <td class="desc">4</td>
+
+          <td class="text-center"><audio controls class="sample_audio"><source src="static/drum_examples/soft_acoustic_drums_target.wav" type="audio/mpeg"></audio></td>
+          <td class="text-center"><audio controls class="sample_audio"><source src="static/drum_examples/soft_acoustic_drums_background.wav" type="audio/mpeg"></audio></td>
+
+          <!-- <td class="desc">Add soft acoustic drums to enhance emotion</td> -->
+          <td class="text-center">
+            <audio controls class="sample_audio"><source src="static/drum_examples/soft_acoustic_drums_output.wav" type="audio/mpeg"></audio>
+            <p class="is-size-7">Add soft acoustic drums to enhance emotion</p>
+          </td>
+        </tr>
+      <tr>
+          <!-- <td class="desc">3</td> -->
+          <td class="desc">5</td>
+          <td class="text-center"><audio controls class="sample_audio"><source src="static/drum_examples/latin_drums_target.wav" type="audio/mpeg"></audio></td>
+          <td class="text-center"><audio controls class="sample_audio"><source src="static/drum_examples/latin_drums_background.wav" type="audio/mpeg"></audio></td>
+          <!-- <td class="desc">Generate percussion with a lively Latin flair</td> -->
+          <td class="text-center">
+            <audio controls class="sample_audio"><source src="static/drum_examples/latin_drums_output.wav" type="audio/mpeg"></audio>
+            <p class="is-size-7">Generate percussion with a lively Latin flair</p>
+          </td>
+      </tr>
+      </tbody>
+  </table>
+</div>
+
+
+
+
+
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Subtractive Training Style Transfer Examples</h2>
+        <div class="content has-text-justified">
+          <p>
+            We use our model to edit the drum stem of an existing song using a text prompt and substantially change its style. For instance, we can take reggae song, remove its drums, and replace them drums with `jazz drums'. This shows our method's ability to perform stem-wise editing, and combine genres in interesting ways.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="container">
+  <table class="table table-responsive">
+      <thead>
+      <tr class="text-center">
+          <td></td>
+          <td><b>Original Song</b></td>
+          <td><b>Remove Drums</b></td>
+          <!-- <td><b>Prompt for Drum Gen.</b></td> -->
+          <td><b>Add Drums Using Our Diffusion Model</b></td>
+      </tr>
+      </thead>
+      <tbody>
+      <tr>
+          <td class="desc">1</td> 
+          <!-- 5 -->
+          <td class="text-center">
+            <audio controls><source src="static/drum_examples/style_transfer/reggae_to_jazz_drums_target.wav" type="audio/mpeg"></audio>
+            </td>
+          <td class="text-center">
+            <audio controls><source src="static/drum_examples/style_transfer/reggae_to_jazz_drums_background.wav" type="audio/mpeg"></audio>
+          </td>
+          <!-- <td class="text-center">Add jazzy drums</td> -->
+          <td class="text-center">
+            <audio controls><source src="static/drum_examples/style_transfer/reggae_to_jazz_drums_output.wav" type="audio/mpeg"></audio>
+            <p class="is-size-7">Add jazzy drums</p>
+          </td>
+      </tr>
+      <tr>
+          <td class="desc">2</td>
+          <td class="text-center">
+            <audio controls><source src="static/drum_examples/style_transfer/soft_pop_to_reggae_target.wav" type="audio/mpeg"></audio>
+          </td>
+          <td class="text-center">
+            <audio controls><source src="static/drum_examples/style_transfer/soft_pop_to_reggae_background.wav" type="audio/mpeg"></audio>
+          </td>
+          <!-- <td class="text-center">Add reggae beats</td> -->
+          <td class="text-center">
+            <audio controls><source src="static/drum_examples/style_transfer/soft_pop_to_reggae_output.wav" type="audio/mpeg"></audio>
+            <p class="is-size-7">Add reggae beats</p>
+          </td>
+          </tr>
+      <tr>
+            <!-- <td class="desc">4</td> -->
+            <td class="text-center">3</td>
+            <td class="text-center">
+              <audio controls><source src="static/drum_examples/style_transfer/soft_to_aggressive_drums_target.wav" type="audio/mpeg"></audio>
+            </td>
+            <td class="text-center">
+              <audio controls><source src="static/drum_examples/style_transfer/soft_to_aggressive_drums_background.wav" type="audio/mpeg"></audio>
+            </td>
+            <td class="text-center">
+              <audio controls><source src="static/drum_examples/style_transfer/soft_to_aggressive_drums_output.wav" type="audio/mpeg"></audio>
+              <p class="is-size-7">Add aggressive rock drums with cymbal crashes</p>
+            </td>
+        </tr>
+      </tbody>
+  </table>
+</div>
+
+<!-- Audio files grid -->
+<!-- <section class="section">
+  <div class="container">
+    <h2 class="title is-3">Subtractive Training Generation Examples</h2>
+    <div class="columns is-multiline">
+      <div class="column is-one-third">
+        <h3 class="title is-5">Song without Drums</h3>
+        <div class="audio-description">
+          <audio controls><source src="static/drum_examples/soft_acoustic_drums_background.wav" type="audio/mpeg"></audio>
+        </div>
+        <div class="audio-description">
+          <audio controls><source src="static/drum_examples/indie_drums_background.wav" type="audio/mpeg"></audio>
+        </div>
+        <div class="audio-description">
+          <audio controls><source src="static/drum_examples/latin_drums_background.wav" type="audio/mpeg"></audio>
+        </div>
+        <div class="audio-description">
+          <audio controls><source src="static/drum_examples/reggae_drums_background.wav" type="audio/mpeg"></audio>
+        </div>
+        <div class="audio-description">
+          <audio controls><source src="static/drum_examples/rock_drums_background.wav" type="audio/mpeg"></audio>
+        </div>
+      </div>
+      <div class="column is-one-third">
+        <h3 class="title is-5">Song with Drums</h3>
+        <div class="audio-description">
+          <audio controls><source src="static/drum_examples/soft_acoustic_drums_target.wav" type="audio/mpeg"></audio>
+        </div>
+        <div class="audio-description">
+          <audio controls><source src="static/drum_examples/indie_drums_target.wav" type="audio/mpeg"></audio>
+        </div>
+        <div class="audio-description">
+          <audio controls><source src="static/drum_examples/latin_drums_target.wav" type="audio/mpeg"></audio>
+        </div>
+        <div class="audio-description">
+          <audio controls><source src="static/drum_examples/reggae_drums_target.wav" type="audio/mpeg"></audio>
+        </div>
+        <div class="audio-description">
+          <audio controls><source src="static/drum_examples/rock_drums_target.wav" type="audio/mpeg"></audio>
+        </div>
+      </div>
+      <div class="column is-one-third">
+        <h3 class="title is-5">Song with Drums Generated using Our Model, with Text-Prompt</h3>
+        <div class="audio-description">
+          <p class="is-size-7">Add soft acoustic drums to enhance emotion</p>
+          <audio controls><source src="static/drum_examples/soft_acoustic_drums_output.wav" type="audio/mpeg"></audio>
+        </div>
+        <div class="audio-description">
+          <p class="is-size-7">Add indie drums with punchy beats</p>
+          <audio controls><source src="static/drum_examples/indie_drums_output.wav" type="audio/mpeg"></audio>
+        </div>
+        <div class="audio-description">
+          <p class="is-size-7">Generate percussion with a lively Latin flair</p>
+          <audio controls><source src="static/drum_examples/latin_drums_output.wav" type="audio/mpeg"></audio>
+        </div>
+        <div class="audio-description">
+          <p class="is-size-7">Add reggae beats</p>
+          <audio controls><source src="static/drum_examples/reggae_drums_output.wav" type="audio/mpeg"></audio>
+        </div>
+        <div class="audio-description">
+          <p class="is-size-7">Add rock drums</p>
+          <audio controls><source src="static/drum_examples/rock_drums_output.wav" type="audio/mpeg"></audio>
+        </div>
+      </div>
+    </div>
+  </div>
+</section> -->
+<!-- End Aidio files grid -->
+
+<!-- Audio files grid -->
+<!-- <section class="section">
+  <div class="container">
+    <h2 class="title is-3">Subtractive Training Style Transfer Examples</h2>
+    <div class="columns is-multiline">
+      <div class="column is-one-third">
+        <h3 class="title is-5">Song without Drums</h3>
+        <div class="audio-description">
+          <audio controls><source src="static/drum_examples/style_transfer/reggae_to_jazz_drums_background.wav" type="audio/mpeg"></audio>
+        </div>
+        <div class="audio-description">
+          <audio controls><source src="static/drum_examples/style_transfer/soft_pop_to_reggae_background.wav" type="audio/mpeg"></audio>
+        </div>
+        <div class="audio-description">
+          <audio controls><source src="static/drum_examples/style_transfer/soft_to_aggressive_drums_background.wav" type="audio/mpeg"></audio>
+        </div>
+      </div>
+      <div class="column is-one-third">
+        <h3 class="title is-5">Song with Drums</h3>
+        <div class="audio-description">
+          <audio controls><source src="static/drum_examples/style_transfer/reggae_to_jazz_drums_target.wav" type="audio/mpeg"></audio>
+        </div>
+        <div class="audio-description">
+          <audio controls><source src="static/drum_examples/style_transfer/soft_pop_to_reggae_target.wav" type="audio/mpeg"></audio>
+        </div>
+        <div class="audio-description">
+          <audio controls><source src="static/drum_examples/style_transfer/soft_to_aggressive_drums_target.wav" type="audio/mpeg"></audio>
+        </div>
+      </div>
+      <div class="column is-one-third">
+        <h3 class="title is-5">Song with Drums Generated Using our Model</h3>
+        <div class="audio-description">
+          <p class="is-size-7">add jazzy drums</p>
+          <audio controls><source src="static/drum_examples/style_transfer/reggae_to_jazz_drums_output.wav" type="audio/mpeg"></audio>
+        </div>
+        <div class="audio-description">
+          <p class="is-size-7">add reggae beats</p>
+          <audio controls><source src="static/drum_examples/style_transfer/soft_pop_to_reggae_output.wav" type="audio/mpeg"></audio>
+        </div>
+        <div class="audio-description">
+          <p class="is-size-7">add aggressive rock drums with cymbal crashes</p>
+          <audio controls><source src="static/drum_examples/style_transfer/soft_to_aggressive_drums_output.wav" type="audio/mpeg"></audio>
+        </div>
+      </div>
+    </div>
+  </div>
+</section> -->
+
+
+
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Subtractive Training MIDI</h2>
+        <div class="content has-text-justified">
+          <p>
+           To show the extensiveness of our subtractive training paradigm, we show that we can also do MIDI generation. We start with a MIDI file that is one instrument only, and generate another instrument on top of it.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+<!-- MIDI files grid -->
+<!-- <section class="section">
+  <div class="container">
+    <h2 class="title is-3">Subtractive Training MIDI Examples</h2>
+    
+    <div class="columns is-multiline">
+      <div class="column is-one-half">
+        <h3 class="title is-5">Guitar Only</h3>
+        <div class="audio-description">
+          <audio controls><source src="static/midi_examples/0_Guitar_Only.wav" type="audio/mpeg"></audio>
+        </div>
+      </div>
+      <div class="column is-one-half">
+        <h3 class="title is-5">Guitar and Generated Bass</h3>
+        <div class="audio-description">
+          <audio controls><source src="static/midi_examples/0_Guitar_And_Bass.wav" type="audio/mpeg"></audio>
+        </div>
+      </div>
+    </div>
+
+    <div class="columns is-multiline">
+      <div class="column is-one-half">
+        <h3 class="title is-5">Drums Only</h3>
+        <div class="audio-description">
+          <audio controls><source src="static/midi_examples/177_Drums_Only.wav" type="audio/mpeg"></audio>
+        </div>
+      </div>
+      <div class="column is-one-half">
+        <h3 class="title is-5">Drums and Generated Guitar</h3>
+        <div class="audio-description">
+          <audio controls><source src="static/midi_examples/177_Drums_and_Guitar.wav" type="audio/mpeg"></audio>
+        </div>
+      </div>
+    </div>
+  </div>
+</section> -->
+<!-- End MIDI files grid -->
+<div class="container" id="abstractdiv">
+  <table class="table table-responsive">
+      <thead>
+      <tr class="text-center">
+          <td></td>
+          <td><b>Instrument</b></td>
+          <td><b>Input MIDI</b></td>
+          <td><b>Added Instrument</b></td>
+          <td><b>Output MIDI</b></td>
+      </tr>
+      </thead>
+      <tbody>
+      <tr>
+          <td class="desc"></td> 
+          <!-- 5 -->
+          <td class="text-center">Bass and Drums</td>
+          <td class="text-center"><audio controls class="sample_audio"><source src="static/midi_examples/G_190_Bass_And_Drums.wav" type="audio/mpeg"></audio></td>
+          <td class="text-center">Adding Guitar</td>
+          <td class="text-center">
+            <audio controls class="sample_audio"><source src="static/midi_examples/G_190_All_Three.wav" type="audio/mpeg"></audio>
+          </td>
+      </tr>
+      <tr>
+        <td class="desc"></td> 
+        <!-- 5 -->
+        <td class="text-center">Guitar</td>
+        <td class="text-center"><audio controls class="sample_audio"><source src="static/midi_examples/B_0_Guitar_Only.wav" type="audio/mpeg"></audio></td>
+        <td class="text-center">Adding Bass</td>
+        <td class="text-center">
+          <audio controls class="sample_audio"><source src="static/midi_examples/B_0_Guitar_And_Bass.wav" type="audio/mpeg"></audio>
+        </td>
+      </tr>
+
+      <tr>
+        <td class="desc"></td> 
+        <!-- 5 -->
+        <td class="text-center">Drums and Guitar</td>
+        <td class="text-center"><audio controls class="sample_audio"><source src="static/midi_examples/B_256_No_Bass.wav" type="audio/mpeg"></audio></td>
+        <td class="text-center">Adding Bass</td>
+        <td class="text-center">
+          <audio controls class="sample_audio"><source src="static/midi_examples/B_256_All_Three.wav" type="audio/mpeg"></audio>
+        </td>
+    </tr>
+    </tr>
+      <tr>
+        <td class="desc"></td> 
+        <!-- 5 -->
+        <td class="text-center">Guitar and Bass</td>
+        <td class="text-center"><audio controls class="sample_audio"><source src="static/midi_examples/D_151_Guitar_and_Bass.wav" type="audio/mpeg"></audio></td>
+        <td class="text-center">Adding Drums</td>
+        <td class="text-center">
+          <audio controls class="sample_audio"><source src="static/midi_examples/D_151_Guitar_and_Bass_and_Drums.wav" type="audio/mpeg"></audio>
+        </td>
+    </tr>
+
+    <tr>
+      <td class="desc"></td>
+      <td class="text-center">Drums and Bass</td>
+      <td class="text-center"><audio controls class="sample_audio"><source src="static/midi_examples/314_No_Guitar.wav" type="audio/mpeg"></audio></td>
+      <td class="text-center">Adding Guitar</td>
+      <td class="text-center">
+        <audio controls class="sample_audio"><source src="static/midi_examples/314_All_Three.wav" type="audio/mpeg"></audio>
+      </td>
+
+      <tr>
+          <td class="desc"></td>
+          <td class="text-center">Drums</td>
+          <td class="text-center"><audio controls class="sample_audio"><source src="static/midi_examples/177_Drums_Only.wav" type="audio/mpeg"></audio></td>
+          <td class="text-center">Adding Guitar</td>
+          <td class="text-center">
+            <audio controls class="sample_audio"><source src="static/midi_examples/177_Drums_and_Guitar.wav" type="audio/mpeg"></audio>
+          </td>
+        </tr>
+
+
+      </tbody>
+  </table>
+</div>
+
+
+
+
+
+<!--BibTex citation -->
+  <!-- <section class="section" id="BibTeX">
+    <div class="container is-max-desktop content">
+      <h2 class="title">BibTeX</h2>
+      <pre><code>BibTex Code Here</code></pre>
+    </div>
+</section> -->
+<!--End BibTex citation -->
+
+
+  <footer class="footer">
+  <div class="container">
+    <div class="columns is-centered">
+      <div class="column is-8">
+        <div class="content">
+
+          <p>
+            Adapted from <a href="https://github.com/eliahuhorwitz/Academic-project-page-template" target="_blank">Academic Project Page Template</a>.
+          </p>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- Statcounter tracking code -->
+  
+<!-- You can add a tracker to track page visits by creating an account at statcounter.com -->
+
+    <!-- End of Statcounter Code -->
+
+  </body>
+  </html>
